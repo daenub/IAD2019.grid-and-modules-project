@@ -1,5 +1,14 @@
+@import 'reset';
 @import 'variables';
+@import 'mixins';
+@import 'typography';
 
 html {
   font-size: $root-font-size;
+}
+
+body {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: (40rem / 16);
+  color: $black;
 }
