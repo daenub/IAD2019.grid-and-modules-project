@@ -49,5 +49,8 @@
     "tabWidth": 2,
     "semi": false,
     "bracketSpacing": false
+  },
+  "dependencies": {
+    "scrollmagic": "^2.0.7"
   }
 }

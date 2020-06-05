@@ -9,7 +9,7 @@ html {
 
 body {
   font-family: "Roboto Condensed", sans-serif;
-  font-size: 5vmin;
+  font-size: 4vw;
   text-transform: uppercase;
   color: $black;
 }
@@ -29,10 +29,18 @@ p {
 }
 
 .verse-1 {
+  position: fixed;
+  top: 50%;
+
   display: grid;
   grid-auto-flow: dense;
   grid-template-columns: 2fr [left] 3fr [right] 4fr 3fr;
   grid-gap: 0 1rem;
+
+  > * {
+    opacity: 0;
+    transition: .3s ease;
+  }
 
   .this-is--1,
   .these-are,
@@ -51,8 +59,140 @@ p {
   }
 
   .this-is--1 {
-    grid-row: 1 / span 4;
+    // grid-row: 1 / span 4;
   }
+
+  .the-start {
+    opacity: 1;
+  }
+
+  &.scene-1 {
+    .this-is--1 {
+      opacity: 1;
+    }
+  }
+
+  &.scene-2 {
+    .this-is--1,
+    .your-heart {
+      opacity: 1;
+    }
+
+    .the-start,
+    .your-heart,
+    .day-born--1,
+    .the-sun,
+    .your-lungs,
+    .day-born--2 {
+      transform: translateY(-1em);
+    }
+  }
+
+  &.scene-3 {
+    .this-is--1,
+    .your-heart,
+    .day-born--1 {
+      opacity: 1;
+    }
+
+    .the-start,
+    .your-heart,
+    .day-born--1,
+    .the-sun,
+    .your-lungs,
+    .day-born--2 {
+      transform: translateY(-2em);
+    }
+  }
+
+  &.scene-4 {
+    .this-is--1,
+    .your-heart,
+    .day-born--1,
+    .the-sun {
+      opacity: 1;
+    }
+
+    .the-start,
+    .your-heart,
+    .day-born--1,
+    .the-sun,
+    .your-lungs,
+    .day-born--2 {
+      transform: translateY(-4em);
+    }
+  }
+
+  &.scene-5 {
+    .this-is--1,
+    .your-heart,
+    .day-born--1,
+    .the-sun,
+    .these-are,
+    .your-lungs {
+      opacity: 1;
+    }
+
+    .this-is--1,
+    .these-are,
+    .this-is--2 {
+      transform: translateY(-1em);
+    }
+
+    .the-start,
+    .your-heart,
+    .day-born--1,
+    .the-sun,
+    .your-lungs,
+    .day-born--2 {
+      transform: translateY(-5em);
+    }
+  }
+
+  &.scene-6 {
+    .this-is--1,
+    .your-heart,
+    .day-born--1,
+    .the-sun,
+    .these-are,
+    .your-lungs,
+    .this-is--2,
+    .day-born--2 {
+      opacity: 1;
+    }
+
+    .this-is--1,
+    .these-are,
+    .this-is--2, {
+      transform: translateY(-2em);
+    }
+
+    .the-start,
+    .your-heart,
+    .day-born--1,
+    .the-sun,
+    .your-lungs,
+    .day-born--2 {
+      transform: translateY(-6em);
+    }
+  }
+}
+
+.verse-1-trigger-scene-1 {
+  margin-top: 100vh;
+}
+
+@for $i from 1 through 6 {
+  .verse-1-trigger-scene-#{$i} {
+    width: 2px;
+    height: 40vh;
+    display: block;
+    background-color: lighten(red, $i * 5%);
+  }
+}
+
+.spacer--50 {
+  height: 50vh;
 }
 
 .verse-2 {
