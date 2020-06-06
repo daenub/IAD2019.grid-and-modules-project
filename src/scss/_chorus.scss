@@ -1,18 +1,12 @@
 .chorus {
+  position: relative;
   text-align: center;
   font-size: 1.5em;
 
   display: flex;
   justify-content: center;
 
-  .always {
-    // height: 200vh;
-  }
-
   .always__sub {
-    // position: sticky;
-    // top: 50vh;
-
     display: block;
     overflow: hidden;
 
@@ -20,6 +14,7 @@
 
     &.visible {
       opacity: 1;
+      transition: .8s ease-out opacity;
     }
 
     $base: 7vh;
@@ -33,7 +28,10 @@
   }
 
   .always__sub--sticky {
+    position: absolute;
+    top: 0;
     opacity: 1;
+    height: auto !important; // yeah i know, i just couldn't be bothered
   }
 
   .yours {
@@ -43,4 +41,13 @@
   .always {
     text-shadow: #{infinite-shadow(7)};
   }
+}
+
+.chorus--2 {
+  background-color: $black;
+  color: $white;
+}
+
+.chorus--3 {
+  margin-bottom: 50vh;
 }

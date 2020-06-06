@@ -46,17 +46,19 @@ document.addEventListener("DOMContentLoaded", () => {
 function chorus(chorusArray, controller) {
   chorusArray.forEach(c => {
     const chorusTrigger = document.querySelector(`#chorus-${c}`)
-    let chorusHeight = chorusTrigger.offsetHeight
+    const chorusPin = chorusTrigger.querySelector(`#chorus-${c}-pin`)
+
+    const getDuration = () => chorusTrigger.offsetHeight - chorusPin.offsetHeight
 
     const chorusPinScene = new ScrollMagic.Scene({
       triggerElement: chorusTrigger,
-      duration: chorusHeight
+      duration: getDuration(),
     })
-      .setPin(`#chorus-${c}-pin`, {pushFollowers: false})
+      .setPin(chorusPin, {pushFollowers: false})
       .addIndicators({name: "Sticky"})
       .addTo(controller)
 
-    onResizeQueue.push(() => chorusPinScene.duration(chorusTrigger.offsetHeight))
+    onResizeQueue.push(() => chorusPinScene.duration(getDuration()))
 
     const chorusScenes = [1,2,3,4,5,6,7,8,9]
 
@@ -64,7 +66,7 @@ function chorus(chorusArray, controller) {
       const el = chorusTrigger.querySelector(`#always__sub--${s}`)
       return new ScrollMagic.Scene({triggerElement: el})
         .setClassToggle(el, "visible")
-        // .addIndicators({name: `Chorus 1 Always ${s}`}) // add indicators (requires plugin)
+        .addIndicators({name: `Chorus 1 Always ${s}`}) // add indicators (requires plugin)
     }))
   })
 }
