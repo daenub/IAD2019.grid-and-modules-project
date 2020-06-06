@@ -1,25 +1,43 @@
-@function infinite-shadow($ch) {
-  $str: "";
-
-  @for $i from 1 through 3 {
-    @if ($i != 1) {
-      $str: $str + ", ";
-    }
-    $str: $str + ($ch * $i) + "ch 0 currentColor, ";
-    $str: $str + ($ch * $i * -1) + "ch 0 currentColor";
-  }
-
-  @return $str;
-}
-
 .chorus {
   text-align: center;
   font-size: 1.5em;
 
-  .i-am,
-  .always,
-  .yours {
+  display: flex;
+  justify-content: center;
+
+  .always {
+    // height: 200vh;
+  }
+
+  .always__sub {
+    // position: sticky;
+    // top: 50vh;
+
     display: block;
+    overflow: hidden;
+
+    opacity: 0;
+
+    &.visible {
+      opacity: 1;
+    }
+
+    $base: 7vh;
+    $ratio: 1.618;
+
+    @for $i from 1 through 7 {
+      &:nth-child(#{6 - $i}) {
+        height: $base * pow($ratio, $i);
+      }
+    }
+  }
+
+  .always__sub--sticky {
+    opacity: 1;
+  }
+
+  .yours {
+    align-self: flex-end;
   }
 
   .always {
