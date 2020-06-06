@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const verse2Scenes = [1,2,3,4,5,6,7,8]
   const verse2El = document.querySelector("#verse-2")
+  const verse2Wrapper = document.querySelector("#verse-2-wrapper")
 
   controller.addScene(verse2Scenes.map((s, i) => {
     return new ScrollMagic.Scene({triggerElement: `#verse-2-trigger-scene-${s}`})
@@ -40,6 +41,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }))
 
   chorus([1, 2, 3], controller)
+
+  const getInvertDuration = () => bridgeEl.getBoundingClientRect().bottom - verse2Wrapper.getBoundingClientRect().top
+
+  const invertScene = new ScrollMagic.Scene({triggerElement: verse2Wrapper, duration: getInvertDuration()})
+    .setClassToggle(document.body, "invert")
+    .addIndicators({name: "INVERT"}) // add indicators (requires plugin)
+    .addTo(controller)
+
+  onResizeQueue.push(() => invertScene.duration(getInvertDuration()))
 })
 
 
@@ -55,7 +65,7 @@ function chorus(chorusArray, controller) {
       duration: getDuration(),
     })
       .setPin(chorusPin, {pushFollowers: false})
-      .addIndicators({name: "Sticky"})
+      // .addIndicators({name: "Sticky"})
       .addTo(controller)
 
     onResizeQueue.push(() => chorusPinScene.duration(getDuration()))
@@ -66,7 +76,7 @@ function chorus(chorusArray, controller) {
       const el = chorusTrigger.querySelector(`#always__sub--${s}`)
       return new ScrollMagic.Scene({triggerElement: el})
         .setClassToggle(el, "visible")
-        .addIndicators({name: `Chorus 1 Always ${s}`}) // add indicators (requires plugin)
+        // .addIndicators({name: `Chorus ${c} Always ${s}`}) // add indicators (requires plugin)
     }))
   })
 }
