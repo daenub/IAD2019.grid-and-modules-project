@@ -1,3 +1,31 @@
+.bridge-wrapper {
+  transition: .3s ease-in-out background-color;
+
+  &.scene-1,
+  &.scene-2 {
+    background-color: $black;
+    color: $white;
+  }
+
+  &.scene-3,
+  &.scene-4 {
+    background-color: $white;
+    color: $black;
+  }
+
+  &.scene-5,
+  &.scene-6 {
+    background-color: $black;
+    color: $white;
+  }
+
+  &.scene-7,
+  &.scene-8 {
+    background-color: $white;
+    color: $black;
+  }
+}
+
 .bridge {
   $cell-width: 12vmin;
 
@@ -22,7 +50,7 @@
     opacity: 0;
   }
 
-  &.scene-1 {
+  .scene-1 & {
     .hallelujah {
       opacity: 1;
     }
@@ -35,7 +63,7 @@
     }
   }
 
-  &.scene-2 {
+  .scene-2 & {
     .caving {
       opacity: 1;
     }
@@ -48,7 +76,7 @@
     }
   }
 
-  &.scene-3 {
+  .scene-3 & {
     .hallelujah {
       opacity: 1;
     }
@@ -61,7 +89,7 @@
     }
   }
 
-  &.scene-4 {
+  .scene-4 & {
     .love {
       opacity: 1;
     }
@@ -74,7 +102,7 @@
     }
   }
 
-  &.scene-5 {
+  .scene-5 & {
     .hallelujah {
       opacity: 1;
     }
@@ -87,7 +115,7 @@
     }
   }
 
-  &.scene-6 {
+  .scene-6 & {
     .wretched {
       opacity: 1;
     }
@@ -100,7 +128,7 @@
     }
   }
 
-  &.scene-7 {
+  .scene-7 & {
     .hallelujah {
       opacity: 1;
     }
@@ -113,7 +141,7 @@
     }
   }
 
-  &.scene-8 {
+  .scene-8 & {
     .chance {
       opacity: 1;
     }

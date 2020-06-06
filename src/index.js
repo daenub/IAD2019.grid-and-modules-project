@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }))
 
   const bridgeScenes = [1,2,3,4,5,6,7,8]
-  const bridgeEl = document.querySelector("#bridge")
+  const bridgeEl = document.querySelector("#bridge-wrapper")
 
   controller.addScene(bridgeScenes.map((s, i) => {
     return new ScrollMagic.Scene({triggerElement: `#bridge-trigger-scene-${s}`})
