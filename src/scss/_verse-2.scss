@@ -269,7 +269,8 @@
     width: 2px;
     height: 40vh;
     display: block;
-    background-color: lighten(blue, $i * 5%);
+    // debug
+    // background-color: lighten(blue, $i * 5%);
   }
 }
 
