@@ -6,7 +6,7 @@ import "ScrollMagic/scrollmagic/uncompressed/plugins/debug.addIndicators"
 document.addEventListener("DOMContentLoaded", () => {
   const controller = new ScrollMagic.Controller()
 
-  const verse1Scenes = [1,2,3,4,5,6]
+  const verse1Scenes = [1,2,3,4,5,6,7]
 
   controller.addScene(verse1Scenes.map((s, i) => {
     return new ScrollMagic.Scene({triggerElement: `#verse-1-trigger-scene-${s}`})

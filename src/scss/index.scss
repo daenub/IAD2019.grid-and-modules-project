@@ -33,7 +33,7 @@ p {
 }
 
 .verse-1 {
-  position: sticky;
+  position: fixed;
   top: 50%;
   height: 100vh;
 
@@ -42,6 +42,8 @@ p {
   grid-template-columns: 2fr [left] 3fr [right] 4fr 3fr;
   grid-gap: 0 1rem;
   grid-auto-rows: min-content;
+
+  transition: .4s ease-out;
 
   > * {
     opacity: 0;
@@ -182,13 +184,18 @@ p {
       transform: translateY(-6em);
     }
   }
+
+  &.scene-7 {
+    transform: translateY(-2em);
+    opacity: 0;
+  }
 }
 
 .verse-1-trigger-scene-1 {
   margin-top: 100vh;
 }
 
-@for $i from 1 through 6 {
+@for $i from 1 through 7 {
   .verse-1-trigger-scene-#{$i} {
     width: 2px;
     height: 40vh;
@@ -197,8 +204,8 @@ p {
   }
 }
 
-.spacer--50 {
-  height: 50vh;
+.verse-1-trigger-scene-7 {
+  height: 60vh;
 }
 
 .verse-2-wrapper {
@@ -207,13 +214,15 @@ p {
 }
 
 .verse-2 {
-  position: sticky;
+  position: fixed;
   top: 50vh;
 
   display: grid;
   grid-auto-flow: dense;
   grid-template-columns: 2fr [left] 3fr [right] 4fr 3fr;
   grid-gap: 0 1rem;
+
+  transition: .4s ease-out;
 
   > * {
     opacity: 0;
@@ -306,7 +315,7 @@ p {
     .deep-in,
     .your-heart,
     .this-is--1,
-    .day-born {
+    .place-born {
       opacity: 1;
     }
 
@@ -335,7 +344,9 @@ p {
     .deep-in,
     .your-heart,
     .this-is--1,
-    .place-born {
+    .place-born,
+    .this-is--2,
+    .the-hole, {
       opacity: 1;
     }
 
@@ -359,37 +370,6 @@ p {
   }
 
   &.scene-5 {
-    .these-are,
-    .the-scars,
-    .deep-in,
-    .your-heart,
-    .this-is--1,
-    .place-born,
-    .this-is--2,
-    .the-hole {
-      opacity: 1;
-    }
-
-    .these-are,
-    .deep-in,
-    .this-is,
-    .where-most,
-    .comes,
-    .from-the,
-    .verse-spacer-left,
-    .the-scars,
-    .your-heart,
-    .place-born,
-    .the-hole,
-    .your-soul,
-    .ripping-out,
-    .places-torn,
-    .verse-spacer-right {
-      transform: translateY(-6em);
-    }
-  }
-
-  &.scene-6 {
     .these-are,
     .the-scars,
     .deep-in,
@@ -422,7 +402,7 @@ p {
     }
   }
 
-  &.scene-7 {
+  &.scene-6 {
     .these-are,
     .the-scars,
     .deep-in,
@@ -453,11 +433,11 @@ p {
     .ripping-out,
     .places-torn,
     .verse-spacer-right {
-      transform: translateY(-6em);
+      transform: translateY(-7em);
     }
   }
 
-  &.scene-8 {
+  &.scene-7 {
     .these-are,
     .the-scars,
     .deep-in,
@@ -490,8 +470,12 @@ p {
     .ripping-out,
     .places-torn,
     .verse-spacer-right {
-      transform: translateY(-6em);
+      transform: translateY(-8em);
     }
+  }
+
+  &.scene-8 {
+    opacity: 0;
   }
 }
 
@@ -502,6 +486,14 @@ p {
     display: block;
     background-color: lighten(blue, $i * 5%);
   }
+}
+
+.verse-2-wrapper {
+  padding-top: 70vh;
+}
+
+.verse-2-trigger-scene-8 {
+  height: 80vh;
 }
 
 @function infinite-shadow($ch) {
