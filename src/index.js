@@ -39,25 +39,32 @@ document.addEventListener("DOMContentLoaded", () => {
       .addIndicators({name: `scene ${s}`}) // add indicators (requires plugin)
   }))
 
-  const chorus1Trigger = document.querySelector("#chorus-1")
-  let chorus1Height = chorus1Trigger.offsetHeight
-
-  const chorus1PinScene = new ScrollMagic.Scene({
-    triggerElement: chorus1Trigger,
-    duration: chorus1Height
-  })
-    .setPin("#chorus-1-pin", {pushFollowers: false})
-    .addIndicators({name: "Sticky"})
-    .addTo(controller)
-
-  onResizeQueue.push(() => chorus1PinScene.duration(chorus1Trigger.offsetHeight))
-
-  const chorus1Scenes = [1,2,3,4,5,6,7,8,9]
-
-  controller.addScene(chorus1Scenes.map((s, i) => {
-    const el = chorus1Trigger.querySelector(`#always__sub--${s}`)
-    return new ScrollMagic.Scene({triggerElement: el})
-      .setClassToggle(el, "visible")
-      // .addIndicators({name: `Chorus 1 Always ${s}`}) // add indicators (requires plugin)
-  }))
+  chorus([1, 2, 3], controller)
 })
+
+
+function chorus(chorusArray, controller) {
+  chorusArray.forEach(c => {
+    const chorusTrigger = document.querySelector(`#chorus-${c}`)
+    let chorusHeight = chorusTrigger.offsetHeight
+
+    const chorusPinScene = new ScrollMagic.Scene({
+      triggerElement: chorusTrigger,
+      duration: chorusHeight
+    })
+      .setPin(`#chorus-${c}-pin`, {pushFollowers: false})
+      .addIndicators({name: "Sticky"})
+      .addTo(controller)
+
+    onResizeQueue.push(() => chorusPinScene.duration(chorusTrigger.offsetHeight))
+
+    const chorusScenes = [1,2,3,4,5,6,7,8,9]
+
+    controller.addScene(chorusScenes.map((s, i) => {
+      const el = chorusTrigger.querySelector(`#always__sub--${s}`)
+      return new ScrollMagic.Scene({triggerElement: el})
+        .setClassToggle(el, "visible")
+        // .addIndicators({name: `Chorus 1 Always ${s}`}) // add indicators (requires plugin)
+    }))
+  })
+}
