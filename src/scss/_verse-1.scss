@@ -142,15 +142,14 @@
   }
 
   &.scene-6 {
-    .this-is--1,
-    .your-heart,
-    .day-born--1,
-    .the-sun,
-    .these-are,
-    .your-lungs,
     .this-is--2,
     .day-born--2 {
       opacity: 1;
+    }
+
+    .these-are,
+    .your-lungs {
+      opacity: 0.2;
     }
 
     .this-is--1,
