@@ -3,9 +3,11 @@ import "./scss/index.scss"
 import ScrollMagic from "ScrollMagic"
 import "ScrollMagic/scrollmagic/uncompressed/plugins/debug.addIndicators"
 
+import debounce from "lodash/debounce"
+
 const onResizeQueue = []
 
-window.addEventListener("resize", () => onResizeQueue.forEach(f => f()))
+window.addEventListener("resize", debounce(() => onResizeQueue.forEach(f => f()), 300))
 
 document.addEventListener("DOMContentLoaded", () => {
   const controller = new ScrollMagic.Controller()
@@ -48,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .addIndicators({name: "Sticky"})
     .addTo(controller)
 
-  onResizeQueue.push(() => console.log(chorus1PinScene.duration(chorus1Trigger.offsetHeight)))
+  onResizeQueue.push(() => chorus1PinScene.duration(chorus1Trigger.offsetHeight))
 
   const chorus1Scenes = [1,2,3,4,5,6,7,8,9]
 
