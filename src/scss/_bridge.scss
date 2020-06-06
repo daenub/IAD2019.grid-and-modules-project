@@ -1,5 +1,5 @@
 .bridge-wrapper {
-  transition: .3s ease-in-out background-color;
+  transition: .5s ease-in-out background-color;
   padding-top: 50vh;
 
   color: $white;
@@ -253,9 +253,13 @@
 @for $i from 1 through 9 {
   .bridge-trigger-scene-#{$i} {
     width: 2px;
-    height: 75vh;
+    height: 100vh;
     display: block;
     // debug
     // background-color: lighten(blue, $i * 5%);
   }
+}
+
+.bridge-trigger-scene-9 {
+  height: 75vh;
 }
