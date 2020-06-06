@@ -81,11 +81,14 @@
   }
 
   &.scene-2 {
-    .these-are,
-    .the-scars,
     .deep-in,
     .your-heart {
       opacity: 1;
+    }
+
+    .these-are,
+    .the-scars {
+      opacity: 0.2;
     }
 
     .these-are,
@@ -108,13 +111,14 @@
   }
 
   &.scene-3 {
-    .these-are,
-    .the-scars,
-    .deep-in,
-    .your-heart,
     .this-is--1,
     .place-born {
       opacity: 1;
+    }
+
+    .deep-in,
+    .your-heart {
+      opacity: 0.2;
     }
 
     .these-are,
@@ -137,15 +141,14 @@
   }
 
   &.scene-4 {
-    .these-are,
-    .the-scars,
-    .deep-in,
-    .your-heart,
-    .this-is--1,
-    .place-born,
     .this-is--2,
     .the-hole, {
       opacity: 1;
+    }
+
+    .this-is--1,
+    .place-born {
+      opacity: 0.2;
     }
 
     .these-are,
@@ -168,17 +171,14 @@
   }
 
   &.scene-5 {
-    .these-are,
-    .the-scars,
-    .deep-in,
-    .your-heart,
-    .this-is--1,
-    .place-born,
-    .this-is--2,
-    .the-hole,
     .where-most,
     .your-soul {
       opacity: 1;
+    }
+
+    .this-is--2,
+    .the-hole, {
+      opacity: 0.2;
     }
 
     .these-are,
@@ -201,19 +201,14 @@
   }
 
   &.scene-6 {
-    .these-are,
-    .the-scars,
-    .deep-in,
-    .your-heart,
-    .this-is--1,
-    .place-born,
-    .this-is--2,
-    .the-hole,
-    .where-most,
-    .your-soul,
     .comes,
     .ripping-out {
       opacity: 1;
+    }
+
+    .where-most,
+    .your-soul {
+      opacity: 0.2;
     }
 
     .these-are,
@@ -236,21 +231,14 @@
   }
 
   &.scene-7 {
-    .these-are,
-    .the-scars,
-    .deep-in,
-    .your-heart,
-    .this-is--1,
-    .place-born,
-    .this-is--2,
-    .the-hole,
-    .where-most,
-    .your-soul,
-    .comes,
-    .ripping-out,
     .from-the,
     .places-torn {
       opacity: 1;
+    }
+
+    .comes,
+    .ripping-out {
+      opacity: 0.2;
     }
 
     .these-are,

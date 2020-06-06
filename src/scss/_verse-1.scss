@@ -59,6 +59,10 @@
       opacity: 1;
     }
 
+    .the-start {
+      opacity: 0.2;
+    }
+
     .the-start,
     .your-heart,
     .day-born--1,
@@ -71,9 +75,12 @@
 
   &.scene-3 {
     .this-is--1,
-    .your-heart,
     .day-born--1 {
       opacity: 1;
+    }
+
+    .your-heart {
+      opacity: 0.2;
     }
 
     .the-start,
@@ -88,10 +95,13 @@
 
   &.scene-4 {
     .this-is--1,
-    .your-heart,
     .day-born--1,
     .the-sun {
       opacity: 1;
+    }
+
+    .day-born--1 {
+      opacity: 0.2;
     }
 
     .the-start,
@@ -105,13 +115,14 @@
   }
 
   &.scene-5 {
-    .this-is--1,
-    .your-heart,
-    .day-born--1,
-    .the-sun,
     .these-are,
     .your-lungs {
       opacity: 1;
+    }
+
+    .this-is--1,
+    .the-sun {
+      opacity: 0.2;
     }
 
     .this-is--1,
