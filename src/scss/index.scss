@@ -19,6 +19,10 @@ p {
   // display: inline;
 }
 
+.verse-1-wrapper {
+
+}
+
 .verse-1,
 .verse-2,
 .chorus--1,
@@ -29,13 +33,15 @@ p {
 }
 
 .verse-1 {
-  position: fixed;
+  position: sticky;
   top: 50%;
+  height: 100vh;
 
   display: grid;
   grid-auto-flow: dense;
   grid-template-columns: 2fr [left] 3fr [right] 4fr 3fr;
   grid-gap: 0 1rem;
+  grid-auto-rows: min-content;
 
   > * {
     opacity: 0;
@@ -195,30 +201,306 @@ p {
   height: 50vh;
 }
 
+.verse-2-wrapper {
+  background-color: $black;
+  color: $white;
+}
+
 .verse-2 {
+  position: sticky;
+  top: 50vh;
+
   display: grid;
   grid-auto-flow: dense;
   grid-template-columns: 2fr [left] 3fr [right] 4fr 3fr;
   grid-gap: 0 1rem;
+
+  > * {
+    opacity: 0;
+    transition: .3s ease;
+  }
 
   .these-are,
   .deep-in,
   .this-is,
   .where-most,
   .comes,
-  .from-the {
+  .from-the,
+  .verse-spacer-left {
     grid-column: left;
     text-align: right;
   }
 
   .the-scars,
-  .your-hear,
+  .your-heart,
   .place-born,
   .the-hole,
   .your-soul,
   .ripping-out,
-  .places-torn {
+  .places-torn,
+  .verse-spacer-right {
     grid-column: right;
+    // transition-duration: .45s;
+  }
+
+  .verse-spacer-left,
+  .verse-spacer-right {
+    height: 1em;
+  }
+
+  &.scene-1 {
+    .these-are,
+    .the-scars {
+      opacity: 1;
+    }
+
+    .these-are,
+    .deep-in,
+    .this-is,
+    .where-most,
+    .comes,
+    .from-the,
+    .verse-spacer-left,
+    .the-scars,
+    .your-heart,
+    .place-born,
+    .the-hole,
+    .your-soul,
+    .ripping-out,
+    .places-torn,
+    .verse-spacer-right {
+      transform: translateY(-1em);
+    }
+  }
+
+  &.scene-2 {
+    .these-are,
+    .the-scars,
+    .deep-in,
+    .your-heart {
+      opacity: 1;
+    }
+
+    .these-are,
+    .deep-in,
+    .this-is,
+    .where-most,
+    .comes,
+    .from-the,
+    .verse-spacer-left,
+    .the-scars,
+    .your-heart,
+    .place-born,
+    .the-hole,
+    .your-soul,
+    .ripping-out,
+    .places-torn,
+    .verse-spacer-right {
+      transform: translateY(-2em);
+    }
+  }
+
+  &.scene-3 {
+    .these-are,
+    .the-scars,
+    .deep-in,
+    .your-heart,
+    .this-is--1,
+    .day-born {
+      opacity: 1;
+    }
+
+    .these-are,
+    .deep-in,
+    .this-is,
+    .where-most,
+    .comes,
+    .from-the,
+    .verse-spacer-left,
+    .the-scars,
+    .your-heart,
+    .place-born,
+    .the-hole,
+    .your-soul,
+    .ripping-out,
+    .places-torn,
+    .verse-spacer-right {
+      transform: translateY(-3em);
+    }
+  }
+
+  &.scene-4 {
+    .these-are,
+    .the-scars,
+    .deep-in,
+    .your-heart,
+    .this-is--1,
+    .place-born {
+      opacity: 1;
+    }
+
+    .these-are,
+    .deep-in,
+    .this-is,
+    .where-most,
+    .comes,
+    .from-the,
+    .verse-spacer-left,
+    .the-scars,
+    .your-heart,
+    .place-born,
+    .the-hole,
+    .your-soul,
+    .ripping-out,
+    .places-torn,
+    .verse-spacer-right {
+      transform: translateY(-4em);
+    }
+  }
+
+  &.scene-5 {
+    .these-are,
+    .the-scars,
+    .deep-in,
+    .your-heart,
+    .this-is--1,
+    .place-born,
+    .this-is--2,
+    .the-hole {
+      opacity: 1;
+    }
+
+    .these-are,
+    .deep-in,
+    .this-is,
+    .where-most,
+    .comes,
+    .from-the,
+    .verse-spacer-left,
+    .the-scars,
+    .your-heart,
+    .place-born,
+    .the-hole,
+    .your-soul,
+    .ripping-out,
+    .places-torn,
+    .verse-spacer-right {
+      transform: translateY(-6em);
+    }
+  }
+
+  &.scene-6 {
+    .these-are,
+    .the-scars,
+    .deep-in,
+    .your-heart,
+    .this-is--1,
+    .place-born,
+    .this-is--2,
+    .the-hole,
+    .where-most,
+    .your-soul {
+      opacity: 1;
+    }
+
+    .these-are,
+    .deep-in,
+    .this-is,
+    .where-most,
+    .comes,
+    .from-the,
+    .verse-spacer-left,
+    .the-scars,
+    .your-heart,
+    .place-born,
+    .the-hole,
+    .your-soul,
+    .ripping-out,
+    .places-torn,
+    .verse-spacer-right {
+      transform: translateY(-6em);
+    }
+  }
+
+  &.scene-7 {
+    .these-are,
+    .the-scars,
+    .deep-in,
+    .your-heart,
+    .this-is--1,
+    .place-born,
+    .this-is--2,
+    .the-hole,
+    .where-most,
+    .your-soul,
+    .comes,
+    .ripping-out {
+      opacity: 1;
+    }
+
+    .these-are,
+    .deep-in,
+    .this-is,
+    .where-most,
+    .comes,
+    .from-the,
+    .verse-spacer-left,
+    .the-scars,
+    .your-heart,
+    .place-born,
+    .the-hole,
+    .your-soul,
+    .ripping-out,
+    .places-torn,
+    .verse-spacer-right {
+      transform: translateY(-6em);
+    }
+  }
+
+  &.scene-8 {
+    .these-are,
+    .the-scars,
+    .deep-in,
+    .your-heart,
+    .this-is--1,
+    .place-born,
+    .this-is--2,
+    .the-hole,
+    .where-most,
+    .your-soul,
+    .comes,
+    .ripping-out,
+    .from-the,
+    .places-torn {
+      opacity: 1;
+    }
+
+    .these-are,
+    .deep-in,
+    .this-is,
+    .where-most,
+    .comes,
+    .from-the,
+    .verse-spacer-left,
+    .the-scars,
+    .your-heart,
+    .place-born,
+    .the-hole,
+    .your-soul,
+    .ripping-out,
+    .places-torn,
+    .verse-spacer-right {
+      transform: translateY(-6em);
+    }
+  }
+}
+
+@for $i from 1 through 8 {
+  .verse-2-trigger-scene-#{$i} {
+    width: 2px;
+    height: 40vh;
+    display: block;
+    background-color: lighten(blue, $i * 5%);
   }
 }
 
