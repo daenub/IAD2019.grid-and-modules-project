@@ -1,7 +1,7 @@
 import "./scss/index.scss"
 
 import ScrollMagic from "ScrollMagic"
-import "ScrollMagic/scrollmagic/uncompressed/plugins/debug.addIndicators"
+// import "ScrollMagic/scrollmagic/uncompressed/plugins/debug.addIndicators"
 
 import debounce from "lodash/debounce"
 
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   controller.addScene(verse1Scenes.map((s, i) => {
     return new ScrollMagic.Scene({triggerElement: `#verse-1-trigger-scene-${s}`})
       .setClassToggle(verse1El, `scene-${s}`)
-      .addIndicators({name: `scene ${s}`}) // add indicators (requires plugin)
+      // .addIndicators({name: `scene ${s}`}) // add indicators (requires plugin)
   }))
 
 
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
   controller.addScene(verse2Scenes.map((s, i) => {
     return new ScrollMagic.Scene({triggerElement: `#verse-2-trigger-scene-${s}`})
       .setClassToggle(verse2El, `scene-${s}`)
-      .addIndicators({name: `scene ${s}`}) // add indicators (requires plugin)
+      // .addIndicators({name: `scene ${s}`}) // add indicators (requires plugin)
   }))
 
 
@@ -42,13 +42,13 @@ document.addEventListener("DOMContentLoaded", () => {
   controller.addScene(bridgeScenes.map((s, i) => {
     return new ScrollMagic.Scene({triggerElement: `#bridge-trigger-scene-${s}`})
       .setClassToggle(bridgeEl, `scene-${s}`)
-      .addIndicators({name: `scene ${s}`}) // add indicators (requires plugin)
+      // .addIndicators({name: `scene ${s}`}) // add indicators (requires plugin)
   }))
 
   const getBridgeDuration = () => bridgeEl.offsetHeight
   const bridgeScene = new ScrollMagic.Scene({triggerElement: bridgeEl, duration: getBridgeDuration()})
     .setClassToggle(bridgeEl, "active")
-    .addIndicators({name: "Bridge"})
+    // .addIndicators({name: "Bridge"})
     .addTo(controller)
 
   onResizeQueue.push(() => bridgeScene.duration(getBridgeDuration()))
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const invertScene = new ScrollMagic.Scene({triggerElement: verse2Wrapper, duration: getInvertDuration()})
     .setClassToggle(document.body, "invert")
-    .addIndicators({name: "INVERT"}) // add indicators (requires plugin)
+    // .addIndicators({name: "INVERT"}) // add indicators (requires plugin)
     .addTo(controller)
 
   onResizeQueue.push(() => invertScene.duration(getInvertDuration()))
