@@ -12,6 +12,7 @@ window.addEventListener("resize", debounce(() => onResizeQueue.forEach(f => f())
 document.addEventListener("DOMContentLoaded", () => {
   const controller = new ScrollMagic.Controller()
 
+  /* VERSE 1 */
   const verse1Scenes = [1,2,3,4,5,6,7]
   const verse1El = document.querySelector("#verse-1")
 
@@ -21,6 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
       .addIndicators({name: `scene ${s}`}) // add indicators (requires plugin)
   }))
 
+
+  /* VERSE 2 */
   const verse2Scenes = [1,2,3,4,5,6,7,8]
   const verse2El = document.querySelector("#verse-2")
   const verse2Wrapper = document.querySelector("#verse-2-wrapper")
@@ -31,7 +34,9 @@ document.addEventListener("DOMContentLoaded", () => {
       .addIndicators({name: `scene ${s}`}) // add indicators (requires plugin)
   }))
 
-  const bridgeScenes = [1,2,3,4,5,6,7,8]
+
+  /* BRIDGE */
+  const bridgeScenes = [1,2,3,4,5,6,7,8,9]
   const bridgeEl = document.querySelector("#bridge-wrapper")
 
   controller.addScene(bridgeScenes.map((s, i) => {
@@ -40,9 +45,21 @@ document.addEventListener("DOMContentLoaded", () => {
       .addIndicators({name: `scene ${s}`}) // add indicators (requires plugin)
   }))
 
+  const getBridgeDuration = () => bridgeEl.offsetHeight
+  const bridgeScene = new ScrollMagic.Scene({triggerElement: bridgeEl, duration: getBridgeDuration()})
+    .setClassToggle(bridgeEl, "active")
+    .addIndicators({name: "Bridge"})
+    .addTo(controller)
+
+  onResizeQueue.push(() => bridgeScene.duration(getBridgeDuration()))
+
+  /* CHORUS 1 - 3 */
   chorus([1, 2, 3], controller)
 
-  const getInvertDuration = () => bridgeEl.getBoundingClientRect().bottom - verse2Wrapper.getBoundingClientRect().top
+
+  /* INVERT (V2 - Bridge) */
+  // the window.innerHeight is just a dirty workaround to toggle the invert class before the bridge has finished
+  const getInvertDuration = () => bridgeEl.getBoundingClientRect().bottom - verse2Wrapper.getBoundingClientRect().top - window.innerHeight * 2
 
   const invertScene = new ScrollMagic.Scene({triggerElement: verse2Wrapper, duration: getInvertDuration()})
     .setClassToggle(document.body, "invert")
