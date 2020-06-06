@@ -1,7 +1,9 @@
 .bridge {
+  $cell-width: 12vmin;
+
   display: grid;
-  grid-template-columns: repeat(6, 10rem);
-  grid-template-rows: repeat(6, 10rem);
+  grid-template-columns: repeat(6, $cell-width);
+  grid-template-rows: repeat(6, $cell-width);
   grid-gap: 0.5rem;
   justify-content: center;
 

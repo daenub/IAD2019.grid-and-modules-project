@@ -1,13 +1,20 @@
 .verse-1 {
   position: fixed;
   top: 50%;
-  height: 100vh;
+  left: 0;
+  right: 0;
+  margin-top: -0.5em;
 
   display: grid;
   grid-auto-flow: dense;
-  grid-template-columns: 2fr [left] 3fr [right] 4fr 3fr;
+  grid-template-columns: 1rem [left] 4fr [right] 6fr 1rem;
   grid-gap: 0 1rem;
   grid-auto-rows: min-content;
+  justify-content: center;
+
+  @include breakpoint(large) {
+    grid-template-columns: 2fr [left] 3fr [right] 4fr 3fr;
+  }
 
   transition: .4s ease-out;
 
