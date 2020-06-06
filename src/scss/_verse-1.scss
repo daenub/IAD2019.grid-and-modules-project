@@ -1,0 +1,175 @@
+.verse-1 {
+  position: fixed;
+  top: 50%;
+  height: 100vh;
+
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template-columns: 2fr [left] 3fr [right] 4fr 3fr;
+  grid-gap: 0 1rem;
+  grid-auto-rows: min-content;
+
+  transition: .4s ease-out;
+
+  > * {
+    opacity: 0;
+    transition: .3s ease;
+  }
+
+  .this-is--1,
+  .these-are,
+  .this-is--2 {
+    grid-column: left;
+    text-align: right;
+  }
+
+  .the-start,
+  .your-heart,
+  .day-born,
+  .the-sun,
+  .your-lungs,
+  .day-born {
+    grid-column: right;
+  }
+
+  .this-is--1 {
+    // grid-row: 1 / span 4;
+  }
+
+  .the-start {
+    opacity: 1;
+  }
+
+  &.scene-1 {
+    .this-is--1 {
+      opacity: 1;
+    }
+  }
+
+  &.scene-2 {
+    .this-is--1,
+    .your-heart {
+      opacity: 1;
+    }
+
+    .the-start,
+    .your-heart,
+    .day-born--1,
+    .the-sun,
+    .your-lungs,
+    .day-born--2 {
+      transform: translateY(-1em);
+    }
+  }
+
+  &.scene-3 {
+    .this-is--1,
+    .your-heart,
+    .day-born--1 {
+      opacity: 1;
+    }
+
+    .the-start,
+    .your-heart,
+    .day-born--1,
+    .the-sun,
+    .your-lungs,
+    .day-born--2 {
+      transform: translateY(-2em);
+    }
+  }
+
+  &.scene-4 {
+    .this-is--1,
+    .your-heart,
+    .day-born--1,
+    .the-sun {
+      opacity: 1;
+    }
+
+    .the-start,
+    .your-heart,
+    .day-born--1,
+    .the-sun,
+    .your-lungs,
+    .day-born--2 {
+      transform: translateY(-4em);
+    }
+  }
+
+  &.scene-5 {
+    .this-is--1,
+    .your-heart,
+    .day-born--1,
+    .the-sun,
+    .these-are,
+    .your-lungs {
+      opacity: 1;
+    }
+
+    .this-is--1,
+    .these-are,
+    .this-is--2 {
+      transform: translateY(-1em);
+    }
+
+    .the-start,
+    .your-heart,
+    .day-born--1,
+    .the-sun,
+    .your-lungs,
+    .day-born--2 {
+      transform: translateY(-5em);
+    }
+  }
+
+  &.scene-6 {
+    .this-is--1,
+    .your-heart,
+    .day-born--1,
+    .the-sun,
+    .these-are,
+    .your-lungs,
+    .this-is--2,
+    .day-born--2 {
+      opacity: 1;
+    }
+
+    .this-is--1,
+    .these-are,
+    .this-is--2, {
+      transform: translateY(-2em);
+    }
+
+    .the-start,
+    .your-heart,
+    .day-born--1,
+    .the-sun,
+    .your-lungs,
+    .day-born--2 {
+      transform: translateY(-6em);
+    }
+  }
+
+  &.scene-7 {
+    transform: translateY(-2em);
+    opacity: 0;
+  }
+}
+
+.verse-1-trigger-scene-1 {
+  margin-top: 100vh;
+}
+
+@for $i from 1 through 7 {
+  .verse-1-trigger-scene-#{$i} {
+    width: 2px;
+    height: 40vh;
+    display: block;
+    background-color: lighten(red, $i * 5%);
+  }
+}
+
+.verse-1-trigger-scene-7 {
+  height: 60vh;
+}

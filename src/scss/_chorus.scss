@@ -1,0 +1,28 @@
+@function infinite-shadow($ch) {
+  $str: "";
+
+  @for $i from 1 through 3 {
+    @if ($i != 1) {
+      $str: $str + ", ";
+    }
+    $str: $str + ($ch * $i) + "ch 0 currentColor, ";
+    $str: $str + ($ch * $i * -1) + "ch 0 currentColor";
+  }
+
+  @return $str;
+}
+
+.chorus {
+  text-align: center;
+  font-size: 1.5em;
+
+  .i-am,
+  .always,
+  .yours {
+    display: block;
+  }
+
+  .always {
+    text-shadow: #{infinite-shadow(7)};
+  }
+}
