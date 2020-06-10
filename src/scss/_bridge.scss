@@ -37,6 +37,8 @@
   grid-template-rows: repeat(6, $cell-width);
   grid-gap: 0.5rem;
   justify-content: center;
+  justify-items: center;
+  align-items: center;
 
   position: fixed;
   top: 50vh;
