@@ -51,7 +51,7 @@
     "bracketSpacing": false
   },
   "dependencies": {
-    "lodash-es": "^4.17.15",
+    "lodash-es": "^4.17.21",
     "scrollmagic": "^2.0.7"
   }
 }
